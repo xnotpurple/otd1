@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTD Singapore Basketball Club</title>
+    <style>
+        body {
+            background: url('images/blackbackground.gif') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+        header img {
+            width: 100%;
+            max-width: 1200px;
+            height: auto;
+        }
+        nav {
+            background: url('images/white.png') repeat-x;
+            border: 5px solid black;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        nav a {
+            color: red;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        nav a.active {
+            color: black;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        #search-container {
+            margin-bottom: 20px;
+        }
+        #search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .player-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .player-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            background: #fff;
+        }
+        .player-card a {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit color from parent */
+        }
+        .player-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .player-card h3 {
+            margin: 10px 0;
+            color: black; /* Text color for player names */
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .player-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            .player-card {
+                width: 90%;
+            }
+            #search-input {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/header.jpg" alt="OTD Singapore Basketball Club">
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="roster.html">Roster</a>
+        <a href="players.html" class="active">Players</a>
+        <a href="sponsors.html">Sponsors</a>
+        <a href="links.html">Links</a>
+    </nav>
+    <div class="container">
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="Search for players...">
+        </div>
+        <div id="player-list" class="player-list">
+            <!-- Player cards will be injected here by JavaScript -->
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 OTD Singapore Basketball Club. All rights reserved.
+    </footer>
+
+    <script>
+        // Example player data
+        const players = [
+            { name: "Kostya Yashenkov", position: "U14", image: "images/kostya_yashenkov.jpg", page: "zkostya_yashenkov.html" },
+            { name: "Marin El'Eman", position: "U14", image: "images/marin_eleman.jpg", page: "zmarin_eleman.html" },
+            // Add more players as needed
+        ];
+
+        // Sort players alphabetically by name
+        players.sort((a, b) => a.name.localeCompare(b.name));
+
+        // Function to create player cards
+        function createPlayerCard(player) {
+            return `
+                <div class="player-card">
+                    <a href="${player.page}">
+                        <img src="${player.image}" alt="${player.name}">
+                        <h3>${player.name}</h3>
+                        <p>${player.position}</p>
+                    </a>
+                </div>
+            `;
+        }
+
+        // Render player cards
+        function renderPlayers(players) {
+            const playerList = document.getElementById('player-list');
+            playerList.innerHTML = players.map(createPlayerCard).join('');
+        }
+
+        // Search functionality
+        function filterPlayers(query) {
+            const filtered = players.filter(player => player.name.toLowerCase().includes(query.toLowerCase()));
+            renderPlayers(filtered);
+        }
+
+        // Event listener for search input
+        document.getElementById('search-input').addEventListener('input', (event) => {
+            filterPlayers(event.target.value);
+        });
+
+        // Initial render
+        renderPlayers(players);
+    </script>
+</body>
+</html>

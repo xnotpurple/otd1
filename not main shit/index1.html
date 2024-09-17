@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTD Singapore</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('images/indexbackground.JPG') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background: #ffffff00;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #000;
+            position: relative;
+        }
+
+        header img.logo {
+            height: 50px;
+            cursor: pointer;
+        }
+
+        nav {
+            background: url('images/white.png') repeat-x;
+            border: 5px solid black;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        nav ul li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            background: #fff;
+            border: 1px solid #ddd;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .dropdown a {
+            padding: 10px 20px;
+            color: black;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background: #f0f0f0;
+        }
+
+        .container {
+            margin: 80px auto 20px;
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container table {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/court.jpg" alt="Logo" class="logo" onclick="window.location.href='index.html';">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>
+                <a href="schedule.html">Schedule</a>
+            </li>
+            <li>
+                <a href="roster.html">Roster</a>
+                <div class="dropdown">
+                    <a href="#">U12</a>
+                    <a href="#">U14</a>
+                    <a href="#">U16</a>
+                    <a href="#">U18</a>
+                </div>
+            </li>
+            <li><a href="players.html">Players</a></li>
+            <li><a href="sponsors.html">Try Out</a></li>
+            <li><a href="links.html">Links</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <img src="" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="images/someimage.jpg" alt="Some Image">
+                </td>
+                <td>
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="400" height="250" frameborder="0" allowfullscreen></iframe>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <footer>
+        &copy; 2024 OTD Singapore Basketball Club. All rights reserved.
+    </footer>
+</body>
+</html>
